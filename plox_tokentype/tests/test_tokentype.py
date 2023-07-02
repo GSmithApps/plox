@@ -1,4 +1,4 @@
-from plox.tokentype import TokenType
+from plox_tokentype import TokenType
 
 def test_tokentype_has_desired_types():
     assert {

@@ -3,8 +3,8 @@ We want a token class that we can use to represent
 the tokens that we find in the source code. 
 """
 
-from plox.token import Token
-from plox.tokentype import TokenType
+from plox_token import Token
+from plox_tokentype import TokenType
 
 def test_token_creation():
     """

@@ -1,11 +1,68 @@
 """
-We want a function called ``increment_line_using_leading_whitespace``
-that takes a string and a line number and does the following:
-
-1. If the string is empty, return the empty string.
-2. If the string is not empty, return the string with
-   all leading whitespace removed.
-3. Adds the number of returns removed to the line number
-    and returns the new line number.
+We want a function called ``increment_line_using_leading_whitespace`` 
+that takes a string and a line number and returns the line number
+incremented by the number of newlines in the leading whitespace of the string.
 """
 
+from pytest import mark
+from .count_returns_in_leading_whitespace import count_returns_in_leading_whitespace
+
+@mark.parametrize(
+    "test_input,expected_output",
+    [
+        ("", 0),
+        (" ", 0),
+        ("\n", 1),
+        ("\n ", 1),
+        ("\n\n", 2),
+        ("\n\n ", 2),
+        ("some text", 0),
+        (" some text", 0),
+        ("\nsome text", 1),
+    ],
+)
+def test_increment_line_using_leading_whitespace(test_input, expected_output):
+    assert increment_line_using_leading_whitespace(test_input, 0) == expected_output
+
+
+def increment_line_using_leading_whitespace(s: str, line: int) -> int:
+    """
+    Increment a line number by the number of newlines in the leading whitespace of a string.
+
+    Parameters
+    ----------
+    s : str
+        The string to count the newlines in the leading whitespace of.
+    line : int
+        The line number to increment.
+
+    Returns
+    -------
+    int
+        The line number incremented by the number of newlines in the leading whitespace of the string.
+
+    Examples
+    --------
+    >>> increment_line_using_leading_whitespace("", 0)
+    0
+    >>> increment_line_using_leading_whitespace(" ", 0)
+    0
+    >>> increment_line_using_leading_whitespace("\\n", 0)
+    1
+    >>> increment_line_using_leading_whitespace("\\n ", 0)
+    1
+    >>> increment_line_using_leading_whitespace("\\n\\n", 0)
+    2
+    >>> increment_line_using_leading_whitespace("\\n\\n ", 0)
+    2
+    >>> increment_line_using_leading_whitespace("some text", 0)
+    0
+    >>> increment_line_using_leading_whitespace(" some text", 0)
+    0
+    >>> increment_line_using_leading_whitespace("\\nsome text", 0)
+    1
+    """
+
+    # write the body of the function
+
+    return line + count_returns_in_leading_whitespace(s)

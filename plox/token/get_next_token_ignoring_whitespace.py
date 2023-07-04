@@ -18,5 +18,6 @@ def test_get_next_token_ignoring_whitespace_multiple_tokens():
     assert get_next_token_ignoring_whitespace('()') == Token(TokenType.LEFT_PAREN, '(', None, 1)
 
 
-def get_next_token_ignoring_whitespace(text):
-    pass
+def get_next_token_ignoring_whitespace(text: str) -> Token:
+    text = text.lstrip()
+

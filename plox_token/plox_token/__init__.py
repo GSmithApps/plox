@@ -7,4 +7,8 @@ class Token:
     type: TokenType
     lexeme: str
     literal: Any
+
+@dataclass
+class TokenWithLine:
+    token: Token
     line: int

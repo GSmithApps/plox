@@ -13,3 +13,7 @@ def test_get_first_token_single_right_paren():
 
 def test_get_first_token_multiple_tokens():
     assert get_first_token('()') == Token(TokenType.LEFT_PAREN, '(', None, 1)
+
+
+def get_first_token(text):
+    pass

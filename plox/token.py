@@ -37,8 +37,9 @@ to strings.
 
 """
 
-from plox_token import Token, TokenWithLine
-from plox_tokentype import TokenType
+from dataclasses import dataclass
+from typing import Any
+from .tokentype import TokenType
 
 def test_token_creation():
 
@@ -68,11 +69,6 @@ def test_token_with_line_to_string():
    token_with_line = TokenWithLine(token, 1)
 
    assert str(token_with_line) == "TokenWithLine(token=Token(type=<TokenType.LEFT_PAREN: 1>, lexeme='(', literal=None), line=1)"
-
-
-from dataclasses import dataclass
-from typing import Any
-from plox_tokentype import TokenType
 
 @dataclass
 class Token:

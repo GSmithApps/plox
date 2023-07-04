@@ -1,5 +1,5 @@
 """
-We want a function called ``process_leading_whitespace``
+We want a function called ``increment_line_using_leading_whitespace``
 that takes a string and a line number and does the following:
 
 1. If the string is empty, return the empty string.

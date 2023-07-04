@@ -1,5 +1,15 @@
+"""
+We need an enumeration for all the token types,
+such as `LEFT_PAREN`, and `RIGHT_PAREN`
+"""
+
 
 def test_tokentype_has_desired_types():
+    """
+    Ensure that we have exactly the following
+    token types:
+    """
+
     assert {
         
         # Single-character tokens.
@@ -56,10 +66,6 @@ def test_tokentype_has_desired_types():
 from enum import Enum, auto
 
 class TokenType(Enum):
-    """
-    pass test ``test_tokentype_has_desired_types``
-    in ``test_tokentype.py``
-    """
 
     # Single-character tokens.
     LEFT_PAREN = auto()

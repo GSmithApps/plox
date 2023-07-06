@@ -29,14 +29,16 @@ def get_next_token_ignoring_whitespace(source_code: str) -> Tuple[Token, int]:
     source_code = source_code.lstrip()
 
     if not source_code:
-        return (TokenType.EOF, 0)
+        return (Token(TokenType.EOF, '', None), 0)
 
-    if source_code[0] in SINGLE_CHARACTER_TOKENS:
+    elif source_code[0] in SINGLE_CHARACTER_TOKENS:
         return single_character_tokens(source_code)
 
-    if source_code[0] in TWO_CHARACTER_TOKENS:
+    elif source_code[0] in TWO_CHARACTER_TOKENS:
         return two_character_tokens(source_code)
 
+    elif source_code[0] == '/':
+        return process_leading_slash(source_code)
 
 
             

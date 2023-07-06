@@ -6,12 +6,11 @@ in that token (if it is a string literal).
 
 from typing import Tuple
 from .token import Token
-from .tokentype import TokenType
-from .tokentype.token_dicts import SINGLE_CHARACTER_TOKENS
-from .tokentype.two_character_token_dicts import (
-    TWO_CHARACTER_TOKENS, TWO_CHARACTER_TOKEN_ONLY_FIRST,
-    TWO_CHARACTER_TOKEN_BOTH
-)
+from .token.tokentype import TokenType
+from .token.tokentype.token_dicts import SINGLE_CHARACTER_TOKENS
+from .token.tokentype.two_character_token_dicts import TWO_CHARACTER_TOKENS
+from .token.two_character_tokens import two_character_tokens
+from .token.single_character_tokens import single_character_tokens
 
 def test_get_next_token_ignoring_whitespace_empty_string():
     assert get_next_token_ignoring_whitespace('') is None
@@ -33,15 +32,10 @@ def get_next_token_ignoring_whitespace(source_code: str) -> Tuple[Token, int]:
         return (TokenType.EOF, 0)
 
     if source_code[0] in SINGLE_CHARACTER_TOKENS:
-        return (Token(SINGLE_CHARACTER_TOKENS[source_code[0]], source_code[0], None), 0)
+        return single_character_tokens(source_code)
 
     if source_code[0] in TWO_CHARACTER_TOKENS:
-        expected = TWO_CHARACTER_TOKENS[source_code[0]]
-        if source_code[1] == expected:
-            return (Token(TWO_CHARACTER_TOKEN_BOTH[source_code[0]], source_code[0:2], None), 0)
-        else:
-            return (Token(TWO_CHARACTER_TOKEN_ONLY_FIRST[source_code[0]], source_code[0], None), 0)
-    
+        return two_character_tokens(source_code)
 
 
 

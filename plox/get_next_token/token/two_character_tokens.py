@@ -31,6 +31,9 @@ def test_two_character_tokens_without_match(source_code, expected):
 
 
 def two_character_tokens(source_code):
+    """
+    If the 
+    """
     expected = TWO_CHARACTER_TOKENS[source_code[0]]
     if source_code[1] == expected:
         x = (Token(TWO_CHARACTER_TOKEN_BOTH[source_code[0]], source_code[0:2], None), 0)

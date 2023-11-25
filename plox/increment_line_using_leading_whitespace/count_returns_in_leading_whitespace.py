@@ -16,19 +16,28 @@ from .get_leading_whitespace import get_leading_whitespace
 def test_count_returns_in_leading_whitespace(test_input, expected_output):
     assert count_returns_in_leading_whitespace(test_input) == expected_output
 
+class LeadingWhitespace(str):
+    """
+    Leading whitespace of a string, usually a string of source code.
+    """
 
-def count_returns_in_leading_whitespace(s: str) -> int:
+class NumberOfReturnsInLeadingWhitespace(int):
+    """
+    Number of newlines in the leading whitespace of a string.
+    """
+
+def count_returns_in_leading_whitespace(s: LeadingWhitespace) -> NumberOfReturnsInLeadingWhitespace:
     """
     Count the number of newlines in the leading whitespace of a string.
 
     Parameters
     ----------
-    s : str
+    s : ``LeadingWhitespace``
         The string to count the newlines in the leading whitespace of.
 
     Returns
     -------
-    int
+    ``NumberOfReturnsInLeadingWhitespace``
         The number of newlines in the leading whitespace of the string.
 
     Examples

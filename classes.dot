@@ -1,0 +1,8 @@
+digraph "classes" {
+rankdir=BT
+charset="utf-8"
+"plox.get_next_token.token.token.Token" [color="black", fontcolor="black", label=<{Token|lexeme : str<br ALIGN="LEFT"/>literal : Any<br ALIGN="LEFT"/>type : TokenType<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"plox.get_next_token.token.tokentype.TokenType" [color="black", fontcolor="black", label=<{TokenType|name<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"plox.get_next_token.token.token.TokenWithLine" [color="black", fontcolor="black", label=<{TokenWithLine|line : int<br ALIGN="LEFT"/>token<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"plox.get_next_token.token.token.Token" -> "plox.get_next_token.token.token.TokenWithLine" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="token", style="solid"];
+}

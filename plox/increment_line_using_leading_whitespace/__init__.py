@@ -25,7 +25,31 @@ def test_increment_line_using_leading_whitespace(test_input, expected_output):
     assert increment_line_using_leading_whitespace(test_input, 0) == expected_output
 
 
-def increment_line_using_leading_whitespace(s: str, line: int) -> int:
+class LineNumberBeforeIncrement(int):
+    """
+    The line number before incrementing.
+    """
+
+class LineNumberAfterIncrement(int):
+    """
+    The line number after incrementing
+    the line number according to the number of newlines
+    in the leading whitespace of a string.
+
+    This will be the starting line number for
+    subsequent lines of source code.
+    """
+
+class SourceCodeWithLeadingWhitespace(str):
+    """
+    - ``" some text"``
+    - ``"\\n\\n "``
+    """
+
+def increment_line_using_leading_whitespace(
+        s: SourceCodeWithLeadingWhitespace,
+        line: LineNumberBeforeIncrement
+    ) -> LineNumberAfterIncrement:
     """
     Increment a line number by the number of newlines in the leading whitespace of a string.
 

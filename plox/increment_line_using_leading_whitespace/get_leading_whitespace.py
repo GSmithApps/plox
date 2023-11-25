@@ -25,9 +25,27 @@ def test_get_leading_whitespace(test_input, expected_output):
 
 # implement the function
 
-def get_leading_whitespace(s: str) -> str:
+class SourceCodeWithLeadingWhitespace(str):
     """
-    Get the leading whitespace of a string.
+    String of source code with leading whitespace.
+
+    - ``" some text"``
+    - ``"\t  some text"``
+    """
+
+class LeadingWhitespaceFromSourceCode(str):
+    """
+    Leading whitespace from source code.
+
+    - ``" "``
+    - ``"\t "``
+    """
+
+def get_leading_whitespace(
+    s: SourceCodeWithLeadingWhitespace
+) -> LeadingWhitespaceFromSourceCode:
+    """
+    Get the leading whitespace of a string of source code.
 
     Parameters
     ----------

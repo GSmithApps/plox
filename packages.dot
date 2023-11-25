@@ -1,0 +1,30 @@
+digraph "packages" {
+rankdir=BT
+charset="utf-8"
+"plox" [color="black", label=<plox>, shape="box", style="solid"];
+"plox.get_next_token" [color="black", label=<plox.get_next_token>, shape="box", style="solid"];
+"plox.get_next_token.get_next_token_ignoring_whitespace" [color="black", label=<plox.get_next_token.get_next_token_ignoring_whitespace>, shape="box", style="solid"];
+"plox.get_next_token.token" [color="black", label=<plox.get_next_token.token>, shape="box", style="solid"];
+"plox.get_next_token.token.single_character_tokens" [color="black", label=<plox.get_next_token.token.single_character_tokens>, shape="box", style="solid"];
+"plox.get_next_token.token.token" [color="black", label=<plox.get_next_token.token.token>, shape="box", style="solid"];
+"plox.get_next_token.token.tokentype" [color="black", label=<plox.get_next_token.token.tokentype>, shape="box", style="solid"];
+"plox.get_next_token.token.tokentype.token_dicts" [color="black", label=<plox.get_next_token.token.tokentype.token_dicts>, shape="box", style="solid"];
+"plox.get_next_token.token.tokentype.two_character_token_dicts" [color="black", label=<plox.get_next_token.token.tokentype.two_character_token_dicts>, shape="box", style="solid"];
+"plox.get_next_token.token.two_character_tokens" [color="black", label=<plox.get_next_token.token.two_character_tokens>, shape="box", style="solid"];
+"plox.increment_line_using_leading_whitespace" [color="black", label=<plox.increment_line_using_leading_whitespace>, shape="box", style="solid"];
+"plox.increment_line_using_leading_whitespace.count_returns_in_leading_whitespace" [color="black", label=<plox.increment_line_using_leading_whitespace.count_returns_in_leading_whitespace>, shape="box", style="solid"];
+"plox.increment_line_using_leading_whitespace.get_leading_whitespace" [color="black", label=<plox.increment_line_using_leading_whitespace.get_leading_whitespace>, shape="box", style="solid"];
+"plox.get_next_token.get_next_token_ignoring_whitespace" -> "plox.get_next_token.token" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.get_next_token_ignoring_whitespace" -> "plox.get_next_token.token.single_character_tokens" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.get_next_token_ignoring_whitespace" -> "plox.get_next_token.token.tokentype" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.get_next_token_ignoring_whitespace" -> "plox.get_next_token.token.tokentype.token_dicts" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.get_next_token_ignoring_whitespace" -> "plox.get_next_token.token.tokentype.two_character_token_dicts" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.get_next_token_ignoring_whitespace" -> "plox.get_next_token.token.two_character_tokens" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.token.single_character_tokens" -> "plox.get_next_token.token.token" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.token.single_character_tokens" -> "plox.get_next_token.token.tokentype.token_dicts" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.token.token" -> "plox.get_next_token.token.tokentype" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.token.two_character_tokens" -> "plox.get_next_token.token.token" [arrowhead="open", arrowtail="none"];
+"plox.get_next_token.token.two_character_tokens" -> "plox.get_next_token.token.tokentype.two_character_token_dicts" [arrowhead="open", arrowtail="none"];
+"plox.increment_line_using_leading_whitespace" -> "plox.increment_line_using_leading_whitespace.count_returns_in_leading_whitespace" [arrowhead="open", arrowtail="none"];
+"plox.increment_line_using_leading_whitespace.count_returns_in_leading_whitespace" -> "plox.increment_line_using_leading_whitespace.get_leading_whitespace" [arrowhead="open", arrowtail="none"];
+}

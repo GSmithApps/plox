@@ -5,7 +5,7 @@ in that token (if it is a string literal).
 """
 
 from typing import Tuple
-from .token import Token
+from .token.token import Token
 from .token.tokentype import TokenType
 from .token.tokentype.token_dicts import SINGLE_CHARACTER_TOKENS
 from .token.tokentype.two_character_token_dicts import TWO_CHARACTER_TOKENS
@@ -26,6 +26,14 @@ def test_get_next_token_ignoring_whitespace_multiple_tokens():
 
 
 def get_next_token_ignoring_whitespace(source_code: str) -> Tuple[Token, int]:
+    """
+    Ignore whitespace and return the first token in the source code.
+
+    - If the source code is empty, return an EOF token.
+    - If the source code starts with a single character token, return that token.
+    - If the source code starts with the first character of
+      a two character token, 
+    """
     source_code = source_code.lstrip()
 
     if not source_code:
@@ -40,5 +48,3 @@ def get_next_token_ignoring_whitespace(source_code: str) -> Tuple[Token, int]:
     elif source_code[0] == '/':
         return process_leading_slash(source_code)
 
-
-            
